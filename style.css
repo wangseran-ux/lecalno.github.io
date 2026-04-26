@@ -1,0 +1,187 @@
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #333;
+}
+
+nav .logo {
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 300;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.5;
+}
+
+/* HERO (ordinateur qui s’allume) */
+.hero {
+  height: calc(100vh - 80px);
+  /* Ajusté pour prendre en compte la barre de navigation */
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  /* Enlève le padding par défaut de la section pour bien centrer l'écran */
+}
+
+/* Écran */
+.screen {
+  width: 420px;
+  height: 260px;
+  background: #050505;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow:
+    0 0 40px rgba(255, 255, 255, 0.05),
+    0 0 120px rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+  animation: screenOn 1.5s ease forwards;
+}
+
+/* Texte terminal */
+.boot-text {
+  font-family: monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.boot-text.delay {
+  animation-delay: 1.5s;
+}
+
+/* Animation écran ON */
+@keyframes screenOn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: brightness(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+/* Fade texte */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Curseur */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Animation points */
+.dots::after {
+  content: "";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+
+  33% {
+    content: ".";
+  }
+
+  66% {
+    content: "..";
+  }
+
+  100% {
+    content: "...";
+  }
+}
+
+/* PAGE TRANSITION */
+.fade-in {
+  animation: fade 0.6s ease forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTENT */
+section {
+  padding: 60px 40px;
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.project {
+  padding: 20px 0;
+  border-bottom: 1px solid #333;
+}
+
+/* PARALLAX */
+.parallax {
+  height: 60vh;
+  background: url('https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?auto=format&w=1200&q=60') center/cover no-repeat;
+  background-attachment: fixed;
+  filter: grayscale(100%) contrast(120%);
+  border-bottom: 1px solid #333;
+}
